@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de ropa/maqueta//hombre</title>
+
+  <!-- Íconos -->
+  <script src="https://kit.fontawesome.com/3e1a9f8834.js" crossorigin="anonymous"></script>
+
+  <!-- Conecta HTML con CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="inicio">
+
+  <!-- Encabezado -->
+  <header class="header-container">
+    <!-- Menú izquierdo -->
+    <div class="menu-izquierdo">
+      <div class="hamburguesa">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <ul class="menu-links">
+        <li><a href="hombre.html" data-i18n="hombre">HOMBRE</a></li>
+        <li><a href="mujer.html" data-i18n="mujer">MUJER</a></li>
+        <li><a href="#" data-i18n="otros">OTROS</a></li>
+      </ul>
+    </div>
+
+    <!-- Logo centrado -->
+    <div class="logo-centro">
+      <a href="index.html">
+      <img src="Imágenes/Logo1.png" alt="Logo">
+      </a>
+    </div>
+
+   <!-- Íconos a la derecha -->
+<div class="acciones">
+  <a href="inicio.registro.html">
+    <i id="icono-perfil" class="fa-solid fa-user"></i>
+  </a>
+  <i id="icono-buscar" class="fa-solid fa-magnifying-glass"></i>
+  <i id="icono-carrito" class="fa-solid fa-cart-shopping"></i>
+
+  <!-- Pestaña de búsqueda -->
+  <div id="menu-buscar" class="menu-buscar-ventana">
+    <input type="text" id="campo-buscar" placeholder="Escribe tu búsqueda..." />
+    <button id="btn-buscar">Buscar</button>
+    <div id="resultados-busqueda"></div> 
+</div>
+
+<!-- Pestaña del carrito --> 
+ <div id="menu-carrito" class="menu-carrito-ventana"> 
+  <h3>Tu carrito</h3> 
+  <ul id="lista-carrito"></ul> 
+  <p id="total-carrito">Total: $0</p> 
+  <button id="btn-vaciar">Vaciar carrito</button> 
+ </div>
+</div>
+</header>
+
+<!-- ========== DE AQUÍ PARA ARRRIBA TODO VA EN TODAS LAS PÁGINAS CON LIGEROS CAMBIOS DEPENDIENDO DE QUE REQUIERAN ========== -->
+ <!--Botones superiores fijos-->
+ <main>
+<section class="botones-superiores">
+    <h1>CAMISAS PARA MUJER</h1>
+   <a href="mujer.html">MUJER</a>
+   <a href="camisas-m.html">CAMISAS</a>
+   <a href="pantalones-m.html">PANTALONES</a>
+   <a href="Rebajas.html">REBAJAS</a>
+ </section>
+
+ <!-- ===== Catálogo de Camisas ===== -->
+  <section class="catalogo-productos">
+<a href="pantalones-m.html" class="producto">
+  <i class="fa-regular fa-heart like-icon"></i>
+    <img src="Imágenes/Mujer/M Pantaón/p-m-01_1.jpg.jpeg" alt="Camisa Oxford" class="img1">
+    <img src="Imágenes/Mujer/M Pantaón/p-m-01_1.jpg.jpeg" alt="Camisa Oxford detalle" class="img2">
+    <h2>Oxford Rosa Clásica</h2>
+    <p class="precio-descuento">$300.00 MXN <span>$500.00 MXN</span></p>
+    <p class="ahorro">Ahorras $200.00 MXN</p>
+  </a>
+
+  <a href="pantalones-m.html" class="producto">
+    <i class="fa-regular fa-heart like-icon"></i>
+    <img src="Imágenes/Mujer/M Pantaón/p-m-02_1.jpg.jpeg" alt="Camisa Oxford" class="img1">
+    <img src="Imágenes/Mujer/M Pantaón/p-m-02_2.jpg.jpeg" alt="Camisa Oxford detalle" class="img2">
+    <h2>Oxford Rosa Clásica</h2>
+    <p class="precio-descuento">$300.00 MXN <span>$500.00 MXN</span></p>
+    <p class="ahorro">Ahorras $200.00 MXN</p>
+  </a>
+
+  <a href="pantalones-m.html" class="producto">
+    <i class="fa-regular fa-heart like-icon"></i>
+    <img src="Imágenes/Mujer/M Pantaón/p-m-03_1.jpg.jpeg" alt="Camisa Oxford" class="img1">
+    <img src="Imágenes/Mujer/M Pantaón/p-m-03_2.jpg.jpeg" alt="Camisa Oxford detalle" class="img2">
+    <h2>Oxford Rosa Clásica</h2>
+    <p class="precio-descuento">$300.00 MXN <span>$500.00 MXN</span></p>
+    <p class="ahorro">Ahorras $200.00 MXN</p>
+  </a>
+
+  <a href="pantalones-m.html" class="producto">
+    <i class="fa-regular fa-heart like-icon"></i>
+    <img src="Imágenes/Mujer/M Pantaón/p-m-04_1.jpg.jpeg" alt="Camisa Oxford" class="img1">
+    <img src="Imágenes/Mujer/M Pantaón/p-m-04_2.jpg.jpeg" alt="Camisa Oxford detalle" class="img2">
+    <h2>Oxford Rosa Clásica</h2>
+    <p class="precio-descuento">$300.00 MXN <span>$500.00 MXN</span></p>
+    <p class="ahorro">Ahorras $200.00 MXN</p>
+  </a>
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========== DE AQUÍ PARA ABAJO TODO VA EN TODAS LAS PÁGINAS CON LIGEROS CAMBIOS DEPENDIENDO DE QUE REQUIERAN ========== -->
+
+<!-- Penultimo parte -->
+  <div class="penultimo">
+    <div>
+     <h2 data-i18n="mi-cuenta">MI CUENTA</h2>
+     <p data-i18n="inicio">INICIAR SECIÓN</p>
+     <p data-i18n="registarme">REGISTRARME</p>
+   </div>
+
+   <div>
+     <h2 data-i18n="productos">PRODUCTOS</h2>
+     <p data-i18n="hombre">HOMBRE</p>
+     <p data-i18n="mujer">MUJER</p>
+     <p data-i18n="rebajas">REBAJAS</p>
+     <p data-i18n="otros">OTROS</p>
+   </div>
+  
+   <div>
+      <h2 data-i18n="info">INFORMACIÓN DE LA EMPRESA</h2>
+      <p data-i18n="atencion">ATENIÓN AL CLIENTE</p>
+      <p data-i18n="acerca">ACERCA DE LA MARCA</p>
+    </div>
+
+   <div class="redes">
+      <h2 data-i18n="siguenos">Síguenos</h2>
+       <a href="https://www.facebook.com" target="_blank">
+        <i class="fa-brands fa-facebook"></i></a>
+       <a href="https://www.youtube.com/" target="_blank">
+        <i class="fa-brands fa-youtube"></i></a>
+       <a href="https://www.instagram.com/" target="_blank">
+        <i class="fa-brands fa-instagram"></i></a>
+      <a href="https://es.pinterest.com/" target="_blank">
+        <i class="fa-brands fa-pinterest"></i></a>
+    
+
+
+      </div>
+  </div>
+
+ 
+<!-- Idioma -->
+    <!-- Botón lateral -->
+<div class="toggle-idioma" id="toggle-idioma" data-i18n="idioma">
+  <i class="fa-solid fa-globe"></i>
+  Selecciona país / idioma
+</div>
+
+<!-- Panel lateral -->
+<aside class="panel-idioma" id="panel-idioma">
+  <button class="cerrar-panel" id="cerrar-panel">✕</button>
+
+  <div class="logo-centro">
+    <img src="Imágenes/Logo1.png" alt="Logo">
+  </div>
+
+  <h2 data-i18n="pais">Selecciona país</h2>
+<select id="pais-idioma">
+  <option value="español">Español</option>
+  <option value="ingles">Inglés</option>
+  <option value="frances">Français</option>
+</select>
+
+
+  <button class="btn-vamos" id="btn-vamos" data-i18n="vamos">VAMOS</button>
+</aside>
+
+<!-- parte legal -->
+  <footer class="footer-legal">
+    <p>
+      Mi Tienda de Ropa 2026©
+      <a href="Aviso legal.html" data-i18n="aviso">Aviso Legal</a>
+      <a href="Condiciones Generales.html" data-i18n="condiciones">Condiciones Generales</a>
+      <a href="Privacidad.html" data-i18n="privacidad">Privacidad</a>
+      <a href="Cookies.html">Cookies</a>
+    </p>
+  </footer> 
+
+  <!-- Conecta JS -->
+<script src="main.js"></script>
+<script src="idiomas.js"></script>
+<script src="acciones.js"></script>
+
+
+</body>
+</html>

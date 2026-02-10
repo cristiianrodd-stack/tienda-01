@@ -1,0 +1,93 @@
+/*========== REGISTRO/INICIO DE SESIÓN ==========*/
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 280px;
+  text-align: center;
+}
+
+.contenedor h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #0f3d2e;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formulario input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px;
+  background: #0f3d2e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #145c44;
+}
+
+.oculto {
+  display: none;
+}
+
+.alternar p {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #0f3d2e;
+  cursor: pointer;
+}
+
+.alternar p:hover {
+  text-decoration: underline;
+}
+
+#mensaje {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #145c44;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
