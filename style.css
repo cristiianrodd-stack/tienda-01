@@ -855,3 +855,67 @@ body {
   cursor: pointer;
 }
 
+
+
+
+/* ==== Paracque no se deforme en celuleres ====*/
+
+/* Ajustes generales para que todo se adapte */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .menu-links {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .menu-izquierdo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hamburguesa {
+    margin-bottom: 10px;
+  }
+
+  .contenedor {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3, p {
+    font-size: 90%; /* reduce un poco el tamaño de texto */
+  }
+}
+
+/* Media query para móviles muy pequeños */
+@media (max-width: 480px) {
+  .menu-links {
+    font-size: 12px;
+  }
+
+  .header-container {
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+}
