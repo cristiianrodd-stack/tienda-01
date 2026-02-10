@@ -1,585 +1,129 @@
-/* RESET */
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: Arial, sans-serif;
 }
-*, *::before, *::after {
-  box-sizing: border-box;
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* HEADER */
-
+/* ================= HEADER ================= */
 .header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 20px;
   background-color: #ffffff95;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
 }
-
 
 /* Menú izquierdo */
 .menu-izquierdo {
   display: flex;
   align-items: center;
   gap: 20px;
-  position: relative;
 }
 
-/* Hamburguesa */
 .hamburguesa {
   font-size: 24px;
   cursor: pointer;
-  z-index: 1000;
 }
 
-/* Menú lateral elegante desde la izquierda */
+/* Menú lateral */
 .menu-links {
   position: fixed;
-  top: 80px;                /* un poco más abajo del header */
-  left: 20px;               /* pegado al lado izquierdo */
-  width: 30vw;              /* ocupa un 30% del ancho de pantalla */
-  min-width: 300px;         /* tamaño mínimo en pantallas pequeñas */
-  max-width: 700px;         /* tamaño máximo */
-  height: 60vh;             /* más compacto que el original */
-  background: #ffffff;
-  border: 1px solid #00000086;
-  border-radius: 10px;      /* esquinas redondeadas */
+  top: 90px;
+  left: 20px;
+  width: 30vw;
+  min-width: 300px;
+  max-width: 700px;
+  height: 60vh;
+  background: #fff;
+  border-radius: 10px;
   padding: 30px 20px;
   list-style: none;
-  margin: 0;
-  transform: translateX(-120%); /* oculto hacia la izquierda */
+  transform: translateX(-120%);
   transition: transform 0.3s ease;
   z-index: 1000;
-  font-family: "Helvetica Neue", Arial, sans-serif; /* tipografía como la ventana de búsqueda */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* sombra elegante */
-  overflow-y: auto;         /* scroll si hay muchos enlaces */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  overflow-y: auto;
 }
 
 .menu-links.activo {
-  transform: translateX(0); /* aparece al activar */
+  transform: translateX(0);
 }
 
 .menu-links li a {
-  text-decoration: none;
-  color: #000000e9;
-  font-weight: 500;         /* menos gruesa que antes */
-  padding: 12px 18px;
   display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #000;
   border-radius: 6px;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .menu-links li a:hover {
-  color: #ffffff;
-  background-color: #0f3d2e; /* tu verde corporativo */
-  transform: translateX(5px);
+  background-color: #0f3d2e;
+  color: #fff;
 }
 
-
-
-/* Logo centrado */
+/* Logo */
 .logo-centro {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  height: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .logo-centro img {
   height: 90px;
-  width: auto;
-  object-fit: contain;
 }
 
-/* Íconos a la derecha */
+/* Acciones derecha */
 .acciones {
   display: flex;
-  justify-content: flex-end;
   gap: 20px;
-  position: relative; /* necesario para posicionar el menú */
+  position: relative;
 }
 
 .acciones i {
   font-size: 20px;
-  color: #000000;
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
 .acciones i:hover {
-  color: #0f3d2e; /* tu verde de marca */
-  transform: scale(1.1);
-}
-
-/* Menú de búsqueda desplegable */
-.menu-buscar-ventana {
-  display: none;
-  position: absolute;
-  top: 40px; /* ajusta según la altura de tu header */
-  right: 0;
-  background: #ffffff;
-  border: 1px solid #00000086;
-  padding: 15px;
-  border-radius: 8px;
-  width: 280px;
-  box-shadow: 0 4px 8px rgb(0, 13, 255);
-  animation: fadeIn 0.3s ease;
-}
-
-.menu-buscar-ventana input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid ;
-}
-
-#ultima-busqueda {
-  margin-top: 10px;
-  font-size: 14px;
   color: #0f3d2e;
-}
-
-/* Animación suave */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
-
-/* ----- DE AQUÍ PARA ARRIBA TODO SE DEBE APLICAR A TODAS LAS PÁGINAS -----*/
-
-/* Carrusel */
-.carrusel {
-  margin-top: 0;
-  position: relative;
-  width: 100%;
-  height: 95vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-.slide {
-  position: absolute;   /* todas las imágenes se superponen */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;           /* ocultas por defecto */
-  transition: opacity 1s ease;
-}
-
-.slide.activo {
-  opacity: 1;           /* solo la activa se muestra */
-  z-index: 1;
-}
-
-
-/* Portada de Catálogos */
-.titulo-catalogo {
-  margin: 0;
-  font-size: 40px;
-  background: #0f3d2e;
-  color: #fff;
-  padding: 30px 50px;
-  text-align: center;
-  width: 100%;
-} 
-
-
-/* Contenedor general */
-.portada-catalogo {
-  display: flex;               /* activa flexbox */
-  justify-content: center;     /* centra todo el bloque */
-  align-items: stretch;        /* todas con la misma altura */
-  width: 100%;                /* ocupa todo el ancho */
-  height: 100vh;               /* ocupa toda la altura */
-  gap: 50px;                   /* margen entre imágenes */
-  padding: 90px;               /* margen interno alrededor */
-  box-sizing: border-box;      /* incluye padding en el cálculo */
-}
-
-/* Cada tarjeta */
-.portada {
-  position: relative;
-  flex: 1;                     /* cada una ocupa el mismo espacio */
-  height: 100%;                /* igual altura que el contenedor */
-  overflow: hidden;
-  text-decoration: none;
-  border-radius: 8px;           /* esquinas suaves */
-}
-
-/* Imagen */
-.portada img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;           /* llena el espacio sin deformarse */
-  display: block;
-}
-
-/* Texto centrado (solo Hombre y Mujer) */
-.portada span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color:  #fff;
-  font-size: 50px;
-  font-weight: bold;
-  background: rgba(25, 30, 26, 0.423);
-  padding: 10px 20px;
-  border-radius: 6px;
-}
-
-/* Rebajas sin texto */
-.portada.sin-texto span {
-  display: none;
-}
-
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-  .portada-catalogo {
-    flex-direction: column; /* tarjetas en columna */
-    align-items: center;    /* centradas */
-    gap: 20px;              /* menos espacio entre tarjetas */
-    padding: 20px;          /* margen interno más pequeño */
-  }
-
-  .portada {
-    width: 90%;             /* más ancho en móvil */
-    aspect-ratio: 4 / 3;    /* proporción equilibrada */
-  }
-
-  .portada span {
-    font-size: 20px;        /* texto más pequeño */
-    padding: 8px 16px;      /* menos espacio interno */
-  }
-}
- 
-
-/* ===== Seción de productos extras ===== */
-
-/* Contenedor general */
-.p-extras {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  margin: 40px 50px;
-  padding: 50px 80px;
-}
-
-/* Títulos y botones */
-.p-extras h2 {
-  font-family: Verdana, sans-serif;
-  font-size: 45px;
-  color: #211f1f;
-  margin-bottom: 10px;
-}
-
-.p-extras a {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-/* ----------------------- */
-/* Gorra: imagen izquierda, texto columna derecha */
-.extras-gorra {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  background-color: #8ef1db;
-  padding: 30px 50px;
-}
-
-.extras-gorra img {
-  max-width: 350px;
-  margin-right: 600px;
-}
-
-.texto-gorra {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-/* ----------------------- */
-/* Perfume: imagen derecha, texto columna izquierda */
-.extras-perfume {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: flex-end;
-  background-color: #7decd4;
-  padding: 60px;
-}
-
-.extras-perfume img {
-  max-width: 350px;
-  margin-left: 400px;
-}
-
-.texto-perfume {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-/* ===== sección de envíos-entregas =====*/
-
-/* Contenedor principal */
-.info {
-  display: flex;               /* Coloca los hijos en fila (envíos y entregas) */
-  justify-content: space-around; /* Espacio uniforme entre columnas */
-  align-items: center;         /* Centra verticalmente los íconos y textos */
-  background-color: #ffda46;   /* Fondo amarillo */
-  padding: 60px;               /* Espaciado interno */
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* Cada columna (envíos y entregas) */
-.info div {
-  flex: 1;                     /* Cada columna ocupa el mismo ancho */
-  text-align: center;          /* Centra el contenido dentro de la columna */
-}
-
-/* Íconos Font Awesome */
-.info i {
-  color: #000;                 /* Íconos en negro para contraste */
-  margin-bottom: 15px;         /* Espacio debajo del ícono */
-}
-
-/* Títulos */
-.info h2 {
-  font-size: 20px;             /* Tamaño de título */
-  font-weight: 700;            /* Negrita */
-  color: #000;                 /* Negro para contraste */
-  margin-bottom: 10px;
-  text-transform: uppercase;   /* Mayúsculas */
-}
-
-/* Texto descriptivo */
-.info p {
-  font-size: 14px;             /* Texto más pequeño */
-  color: #000;                 /* Negro para contraste */
-  margin: 0;
-}
-
-/* ===== Eslogan =====*/
-
-.eslogan {
-  background-color: #ffffff;
-  color: #151414;
-  text-align: center;
-  padding: 2em 1em;
-  margin: 0;
-}
-
-.eslogan img {
-  max-width: 190px;
-  height: auto;
-  display: block;
-  margin: 0 auto 1em auto;
-}
-
-.eslogan h1 {
-  font-size: 2em;
-  margin: 0.5em 0; 
-  font-weight: bold; 
-  letter-spacing: 2px;
-}
-
-.eslogan p { 
-  font-size: 1.2em; 
-  margin: 0; 
-  font-style: italic;
-}
-
-
-/* ===== Penultimo ===== */
-
-.penultimo {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  background-color: #fff;
-  color: #000;
-  padding: 40px;
-  font-family: sans-serif;
-}
-
-.penultimo h2 {
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #000000;
-  text-transform: uppercase;
-}
-
-.penultimo p {
-  margin: 6px 0;
-  font-size: 10px;
-  color: #000000;
-  cursor: pointer;
-}
-
-.penultimo p:hover {
-  color: #3fc89a;
-  text-decoration: underline;
-}
-.redes i {
-  font-size: 40px;
-  color: #000;
-} 
-
-.redes i:hover {
-  color: #3fc89a;
   transform: scale(1.1);
 }
 
-
-
-
-
-/* ===== Parte legal e idioma ===== */
-
-/* Footer legal */
-.footer-legal {
-  background-color: #fff;
-  color: #000;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-}
-
-.footer-legal a {
-  color: #000;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer-legal a:hover {
-  text-decoration: underline;
-}
-
-
-
-/* Botón lateral idioma */
-.toggle-idioma {
-  float: right;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin-top: 20px;
-  border: none;
-}
-
-/* Panel lateral idioma */
-.panel-idioma {
-  position: fixed;
-  top: 0;
-  right: -320px;
-  width: 320px;
-  height: 100%;
-  background: #fff;
-  padding: 30px;
-  transition: right 0.3s ease;
-  z-index: 9999;
-  pointer-events: auto;
-}
-
-.panel-idioma.activo {
-  right: 0;
-}
-
-.panel-idioma h2 {
-  margin: 20px 0;
-  font-size: 18px;
-}
-
-.panel-idioma select {
-  padding: 10px;
-  margin-bottom: 20px;
-  width: 80%;
-}
-
-/* Botón VAMOS */
-.btn-vamos {
-  display: inline-block;
-  background-color: #000;
-  color: #fff;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-}
-
-.btn-vamos:hover {
-  background-color: #333;
-}
-
-/* Botón cerrar (X) */
-.cerrar-panel {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 10002;
-}
-
-/* Botón cerrar (X) */
-.cerrar-panel {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  z-index: 10002;
-}
-
-/* ---- NUEVOS ESTILOS PARA BUSCADOR LUPA ---- */
+/* ================= BUSCADOR LUPA ================= */
 .menu-buscar-ventana {
-  display: none;          
-  position: absolute;
-  top: 80px;              /* un poco más abajo del header */
-  right: 20px;            /* separa un poco del borde derecho */
-  width: 30vw;            /* ahora ocupa un 30% del ancho de la pantalla */
-  min-width: 300px;       /* tamaño mínimo en pantallas pequeñas */
-  max-width: 700px;       /* tamaño máximo */
-  height: 50vh;           /* ocupa la mitad de la altura de la pantalla */
+  display: none;
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  width: 30vw;
+  min-width: 300px;
+  max-width: 700px;
+  max-height: 60vh;
   background: #fff;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-  overflow-y: auto;       /* agrega scroll si hay muchos resultados */
+  z-index: 2000;
+  overflow-y: auto;
 }
 
 .menu-buscar-ventana input {
@@ -588,223 +132,139 @@ body {
   border: 1px solid #ccc;
   border-radius: 6px;
   margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.menu-buscar-ventana button {
-  padding: 10px 20px;
-  background-color: #0f3d2e;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-  margin-bottom: 12px;
 }
 
 #resultados-busqueda {
   margin-top: 10px;
-  padding: 0;
 }
 
 .resultado-item {
   display: block;
   padding: 10px 15px;
   margin-bottom: 6px;
-  background-color: #f9f9f9;
+  background-color: #f5f5f5;
   border-radius: 6px;
   text-decoration: none;
   color: #333;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .resultado-item:hover {
-  background-color: #0f3d2e; /* tu verde corporativo */
-  color: #ffffff;
-  transform: translateX(5px);
-}
-
-/* --- Carrito --- */
-.menu-carrito-ventana {
-  display: none; /* oculto por defecto */
-  position: absolute;
-  right: 10px;
-  top: 50px;
-  width: 300px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.menu-carrito-ventana h3 {
-  margin-top: 0;
-  font-size: 18px;
-  color: #0f3d2e;
-}
-
-#lista-carrito {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0;
-}
-
-#lista-carrito li {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 0;
-  border-bottom: 1px solid #eee;
-}
-
-#btn-vaciar {
   background-color: #0f3d2e;
   color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
-#btn-vaciar:hover {
-  background-color: #145c43;
+/* ================= CARRUSEL ================= */
+.carrusel {
+  width: 100%;
+  height: 95vh;
+  position: relative;
+  overflow: hidden;
 }
 
-/*========== DE AQUÍ PARA ARRIBA TODO ES DE LA PÁGINA PRINCIPAL Y OTRAS COSAS =========== */ 
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+  object-fit: cover;
+}
 
-/*========== DE AQUÍ PARA ABAAJO TRABAJAR LAS DEMAS SUB-PÁGINAS ==========*/
+.slide.activo {
+  opacity: 1;
+}
 
+/* ================= CATÁLOGO PORTADA ================= */
+.titulo-catalogo {
+  background: #0f3d2e;
+  color: #fff;
+  text-align: center;
+  padding: 30px;
+  font-size: 40px;
+}
+
+.portada-catalogo {
+  display: flex;
+  gap: 50px;
+  padding: 90px;
+  height: 100vh;
+}
+
+.portada {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.portada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portada span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+}
+
+/* ================= BOTONES SUPERIORES ================= */
 .botones-superiores {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  justify-content:baseline;
   padding: 150px;
-  overflow-x: auto;
 }
 
-.botones-superiores h1 { 
-  text-align: left;
-  flex-basis: 100%; 
-  margin-bottom: 10px; 
+.botones-superiores h1 {
+  flex-basis: 100%;
   margin: 0;
 }
 
-
 .botones-superiores a {
-  background: #000000;   /* color base */
+  background: #000;
   color: #fff;
-  border-color: #000;
+  padding: 12px 18px;
+  border-radius: 6px;
   text-decoration: none;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular',
-               'Lucida Grande', 'Lucida Sans Unicode',
-               Geneva, Verdana, sans-serif;
-  padding: 12px 18px; 
-  border-radius: 6px; 
-  display: inline-block;
-  
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover para los demás */
 .botones-superiores a:hover {
-  background: #00000071;      /* gris oscuro al pasar el mouse */
+  background: #00000071;
 }
 
-/* imagenees de cattalogo */
-.catalogo-secundario {
-  display: flex;
-  justify-content: center;   /* centra horizontal */
-  align-items: center;       /* centra vertical */
-  gap: 100px;                 /* separación entre portadas */
-  min-height: 100vh;         /* ocupa toda la pantalla */
-}
-
-.portada-secundario {
-  position: relative;
-  width: 350px;              /* ajusta tamaño */
-  text-align: center;
-}
-
-.portada-secundario img {
-  width: 100%;
-  height: 550px;             /* mismo alto para todas */
-  object-fit: cover;         /* recorta manteniendo proporción */
-  display: block;
-  transition: opacity 0.6s ease; /* efecto suave */
-}
-
-.portada-secundario img.img2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.portada-secundario:hover img.img1 {
-  opacity: 0;
-}
-
-.portada-secundario:hover img.img2 {
-  opacity: 1;
-}
-
-.portada-secundario span {
-  display: inline-block;
-  width: 100%;
-  background-color: #000;
-  color: #fff;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular',
-               'Lucida Grande', 'Lucida Sans Unicode',
-               Geneva, Verdana, sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 15px 0;
-  border-radius: 4px;
-  text-transform: uppercase;
-
-}
-
-/* ===== Catálogo de camisas hombre ====== */
+/* ================= PRODUCTOS ================= */
 .catalogo-productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  padding: 40px 20px;
-  background-color: #ffffff;
+  padding: 40px;
 }
 
 .producto {
   position: relative;
-  border: 1px solid #c0c0c0;
+  border: 1px solid #ccc;
   border-radius: 6px;
   padding: 15px;
   text-align: center;
-  font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
-  transition: box-shadow 0.3s ease;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-}
-
-.producto:hover {
-  box-shadow: 0 0 10px #0000006f;
 }
 
 .producto img {
   width: 100%;
   height: 550px;
   object-fit: cover;
-  display: block;
   transition: opacity 0.5s ease;
 }
 
 .producto img.img2 {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  inset: 15px;
   opacity: 0;
-  z-index: 1;
 }
 
 .producto:hover img.img1 {
@@ -815,128 +275,31 @@ body {
   opacity: 1;
 }
 
-.producto h2 {
-  font-size: 16px;
-  margin: 10px 0;
-  color: #0f3d2e;
-  font-weight: 600;
-}
-
-.precio-descuento {
-  font-size: 15px;
-  color: #000;
-  margin-bottom: 5px;
-}
-
-.precio-descuento span {
-  text-decoration: line-through;
-  color: #888;
-  margin-left: 8px;
-}
-
-.ahorro {
-  font-size: 13px;
-  color: #d00;
-  font-weight: 600;
-}
-
-/* ==== Like productos ==== */
-.producto {
-  position: relative;
-}
-
-.like-icon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 22px;
-  color: #000000;
-  z-index: 10;
-  cursor: pointer;
-}
-
-
-
-/* Ajustes generales para imágenes y cuerpo */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Pantallas medianas (tablets y móviles grandes) */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-
   .menu-links {
+    width: 85vw;
+    left: 5vw;
+  }
+
+  .menu-buscar-ventana {
+    width: 90vw;
+    right: 5vw;
+  }
+
+  .portada-catalogo {
     flex-direction: column;
-    gap: 10px;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .menu-izquierdo {
-    width: 100%;
-    text-align: center;
-  }
-
-  .hamburguesa {
-    margin-bottom: 10px;
-  }
-
-  .contenedor {
-    width: 95%;
-    margin: 0 auto;
-  }
-
-  h1, h2, h3, p {
-    font-size: 90%;
+    height: auto;
+    padding: 20px;
   }
 }
 
-/* Pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
-  .menu-links {
-    font-size: 12px;
-  }
-
-  .header-container {
-    padding: 5px;
-  }
-
-  h1 {
-    font-size: 18px;
-  }
-
-  .contenedor {
-    width: 100%;
-  }
-
-  /* Catálogo de productos en una sola columna */
-  .catalogo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .producto {
-    width: 90%;
-    text-align: center;
+  .logo-centro img {
+    height: 60px;
   }
 
   .producto img {
-    width: 100%;
     height: auto;
   }
 }
-
-/* == FIN == */
