@@ -466,3 +466,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const catalogo = document.querySelector(".catalogo-hombre");
+  const btnIzq = document.querySelector(".izquierda");
+  const btnDer = document.querySelector(".derecha");
+
+  if (!catalogo || !btnIzq || !btnDer) {
+    console.error("Faltan elementos del catálogo o flechas");
+    return;
+  }
+
+  btnDer.addEventListener("click", () => {
+    catalogo.scrollBy({
+      left: 250,
+      behavior: "smooth"
+    });
+  });
+
+  btnIzq.addEventListener("click", () => {
+    catalogo.scrollBy({
+      left: -250,
+      behavior: "smooth"
+    });
+  });
+});
